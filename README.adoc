@@ -1,0 +1,108 @@
+= Claude Code Custom Commands
+
+A collection of custom skills/commands for Claude Code CLI that enhance your development workflow.
+
+== Installation
+
+Clone this repository into your Claude Code commands directory:
+
+[source,bash]
+----
+git clone https://github.com/choonkeat/commands.git ~/.claude/commands/ck
+----
+
+After cloning, you'll be able to invoke these skills from Claude Code using the `/ck:` prefix.
+
+== Available Skills
+
+=== `/ck:doit-carefully`
+
+Executes tasks with extra care and attention to detail. This is typically used when Claude Code asks if an approach is okay with you. Instead of just saying "Yes", you can respond with `/ck:doit-carefully` to proceed with the proposed approach. If multiple options were presented, you can specify which one: `/ck:doit-carefully go with Option 1`.
+
+*Usage:*
+
+----
+/ck:doit-carefully
+/ck:doit-carefully go with Option 1
+/ck:doit-carefully <your task description>
+----
+
+=== `/ck:draft-pr`
+
+Analyzes your git commits on top of `origin/main` and helps plan your pull request(s) to reduce review burden and improve organization.
+
+*Usage:*
+
+----
+/ck:draft-pr
+----
+
+=== `/ck:update-docs`
+
+Compares documentation against source code to identify stale, incorrect, or missing content. Also finds redundant sections that should be pruned.
+
+*Usage:*
+
+----
+/ck:update-docs
+----
+
+=== `/ck:git-squash`
+
+Reviews recent commit history and identifies commits that should be squashed together (detours, intermediate fixes, etc.).
+
+*Usage:*
+
+----
+/ck:git-squash
+----
+
+== How to Use
+
+In Claude Code CLI, simply type the skill name with the `/ck:` prefix:
+
+----
+/ck:doit-carefully implement user authentication
+----
+
+Or invoke without arguments for skills that don't require them:
+
+----
+/ck:draft-pr
+----
+
+== Requirements
+
+- https://claude.com/claude-code[Claude Code CLI] installed and configured
+- Git (for git-related skills)
+
+== Create Your Own Command Collection
+
+Instead of contributing here, we encourage you to create your own command repository! This allows you to:
+
+- Develop skills tailored to your specific workflow
+- Evolve commands that match your team's practices
+- Maintain your own collection without conflicts
+
+*Getting started:*
+
+. Create your own repository for custom commands
+. Clone it into `~/.claude/commands/<yourprefix>`
+. Add your custom skills following the Claude Code skills format
+. Invoke them with `/yourprefix:command-name`
+
+For example:
+
+[source,bash]
+----
+git clone https://github.com/yourname/claude-commands.git ~/.claude/commands/myco
+----
+
+Then use your commands:
+
+----
+/myco:deploy-staging
+/myco:run-integration-tests
+----
+
+Over time, you'll build a powerful collection of commands that make your development workflow more efficient!
